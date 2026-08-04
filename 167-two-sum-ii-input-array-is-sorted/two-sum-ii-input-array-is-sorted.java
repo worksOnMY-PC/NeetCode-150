@@ -1,15 +1,16 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        HashMap<Integer, Integer> pairs = new HashMap<>();
-        for(int i = 0; i < numbers.length; i++){
-            int cur = numbers[i];
-            int x = target - cur;
-            if(pairs.containsKey(x)){
-                return new int[] {pairs.get(x)+1,i+1};
-            }else{
-                pairs.put(cur,i);
+        int lp = 0;
+        int rp = numbers.length - 1;
+        for(int nums : numbers){
+            if(numbers[lp]+numbers[rp] == target){
+                return new int[] {lp+1, rp+1};
+            }else if(numbers[lp]+numbers[rp] < target){
+                lp++;
+            }else if(numbers[lp]+numbers[rp] > target){
+                rp--;
             }
         }
-        return new int[]{-1, -1};
+        return new int[] {-1, -1};
     }
 }
