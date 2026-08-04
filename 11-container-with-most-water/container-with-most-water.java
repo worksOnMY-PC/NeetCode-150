@@ -5,7 +5,7 @@ class Solution {
         int maxArea = 0;
         int lp = 0;
         int rp = height.length - 1;
-        for(int val : height){
+        while(lp<rp){
             if(height[lp]<height[rp]){
                 minHeight = height[lp];
                 maxArea = minHeight*(rp-lp);
